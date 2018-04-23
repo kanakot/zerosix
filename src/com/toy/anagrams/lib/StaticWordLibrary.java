@@ -60,7 +60,6 @@ final class StaticWordLibrary extends WordLibrary {
         "indistinguishable",
         "inheritance",
         "internet",
-        "java",
         "localization",
         "microprocessor",
         "navigation",
@@ -81,7 +80,10 @@ final class StaticWordLibrary extends WordLibrary {
         "hotjava",
         "vertex",
         "unsigned",
-        "traditional"};
+        "traditional",
+        "soul",
+        "fantasy",
+        "flower"};
 
     private static final String[] SCRAMBLED_WORD_LIST = {
         "batsartcoin",
@@ -107,7 +109,6 @@ final class StaticWordLibrary extends WordLibrary {
         "niidtsniugsiahleb",
         "niehiratcen",
         "nietnret",
-        "ajav",
         "olacilazitno",
         "imrcpoorecssro",
         "anivagitno",
@@ -128,7 +129,10 @@ final class StaticWordLibrary extends WordLibrary {
         "ohjtvaa",
         "evtrxe",
         "nuisngde",
-        "rtdatioialn"
+        "rtdatioialn",
+        "losu",
+        "tsafyan",
+        "wolref"
     };
     
     final static WordLibrary DEFAULT = new StaticWordLibrary();
