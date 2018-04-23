@@ -31,6 +31,13 @@
 
 package com.toy.anagrams.lib;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+
+
 /**
  * Implementation of the logic for the Anagram Game application.
  */
@@ -85,7 +92,7 @@ final class StaticWordLibrary extends WordLibrary {
         "fantasy",
         "flower"};
 
-    private static final String[] SCRAMBLED_WORD_LIST = {
+    /*private static final String[] SCRAMBLED_WORD_LIST = {
         "batsartcoin",
         "maibuguos",
         "ratimhteci",
@@ -133,7 +140,7 @@ final class StaticWordLibrary extends WordLibrary {
         "losu",
         "tsafyan",
         "wolref"
-    };
+    };*/
     
     final static WordLibrary DEFAULT = new StaticWordLibrary();
 
@@ -158,7 +165,26 @@ final class StaticWordLibrary extends WordLibrary {
      * @return word at that index in its scrambled form
      */
     public String getScrambledWord(int idx) {
-        return SCRAMBLED_WORD_LIST[idx];
+    	String s = WORD_LIST[idx];
+    	String[] s2 = s.split("");
+    	String[] s3 = new String[s.length()];
+    	String s4 = "";
+    	ArrayList<Integer> list = new ArrayList<Integer>();
+    	
+    	for(int i = 0; i<s.length(); i++){
+    		list.add(i);
+    		
+    	}
+    	Collections.shuffle(list);
+    	for(int i = 0; i<s.length(); i++){
+    		int a=0;
+    		a=list.get(i);
+    	s3[i]=s2[a];
+    	}
+    	for(int i=0; i<s3.length; i++){
+    	s4=s4+s3[i];
+    	}
+        return s4;
     }
 
     /**
