@@ -35,6 +35,8 @@ import com.toy.anagrams.lib.WordLibrary;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
+
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -42,6 +44,7 @@ import javax.swing.SwingUtilities;
  * Main window of the Anagram Game application.
  */
 public class Anagrams extends JFrame {
+	int widx=0;
 
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */
@@ -84,7 +87,7 @@ public class Anagrams extends JFrame {
         
         initComponents();
         getRootPane().setDefaultButton(guessButton);
-        scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx));
+        scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx,widx));
         pack();
         guessedWord.requestFocusInWindow();
         // Center in the screen
@@ -118,7 +121,9 @@ public class Anagrams extends JFrame {
         fileMenu = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
+        
 
+        
         setTitle("Word Anagrams");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -212,12 +217,14 @@ public class Anagrams extends JFrame {
         gridBagConstraints.gridy = 2;
         mainPanel.add(levelLabel, gridBagConstraints);
 
-        selectLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Level 1", "Level 2", "Level 3" }));
+        String[] combodata = new String[] { "Level 1", "Level 2", "Level 3" };
+        selectLevel.setModel(new javax.swing.DefaultComboBoxModel(combodata));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         mainPanel.add(selectLevel, gridBagConstraints);
+        
 
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
@@ -255,9 +262,10 @@ public class Anagrams extends JFrame {
 
     private void nextTrialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTrialActionPerformed
         wordIdx = (wordIdx + 1) % wordLibrary.getSize();
+        widx = selectLevel.getSelectedIndex();
 
         feedbackLabel.setText(" ");
-        scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx));
+        scrambledWord.setText(wordLibrary.getScrambledWord(wordIdx,widx));
         guessedWord.setText("");
         getRootPane().setDefaultButton(guessButton);
 
